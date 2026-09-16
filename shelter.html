@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Book en overnatning i shelter hos Møllely i Lynge for 300 kr. pr. nat. Bålplads, udsigt over marken, og I medbringer selv det hele.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎃</text></svg>">
+<title>Shelter · Møllely</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:wght@400;500;700;800&display=swap">
+<style>
+  :root {
+    --cream: #F6F1E3;
+    --card: #FDFBF4;
+    --ink: #22301B;
+    --ink-soft: #5A6350;
+    --line: #E3DCC8;
+    --pumpkin: #C95B1F;
+    --green-deep: #24391F;
+    --green-soft: #C9D3BD;
+    --shadow: 0 1px 2px rgba(34, 48, 27, 0.06), 0 10px 30px rgba(34, 48, 27, 0.08);
+    /* aliaser til bookingmodulet */
+    --ground: var(--cream);
+    --paper: var(--card);
+    --green-line: var(--line);
+    --pumpkin-soft: #F0DECB;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--cream); color: var(--ink); font-family: "Karla", "Segoe UI", Arial, sans-serif; font-size: 1.0625rem; line-height: 1.6; }
+  h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--pumpkin); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+  .eyebrow::before { content: ""; width: 1.6rem; height: 3px; background: var(--pumpkin); border-radius: 2px; }
+  header.top { position: sticky; top: 0; z-index: 50; background: rgba(246, 241, 227, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; }
+  .brand { font-family: "Young Serif", Georgia, serif; font-size: 1.4rem; text-decoration: none; display: flex; align-items: center; gap: 0.55rem; }
+  .brand svg { flex: none; color: var(--pumpkin); }
+  nav.main-nav { display: flex; gap: 1.5rem; }
+  nav.main-nav a { text-decoration: none; font-weight: 700; font-size: 0.95rem; color: var(--ink-soft); }
+  nav.main-nav a:hover { color: var(--ink); }
+  nav.main-nav a.active { color: var(--ink); border-bottom: 2px solid var(--pumpkin); padding-bottom: 2px; }
+  @media (max-width: 44rem) { nav.main-nav { display: none; } }
+  .btn { display: inline-block; text-decoration: none; font-weight: 800; font-size: 0.98rem; padding: 0.8rem 1.6rem; border-radius: 999px; border: 2px solid transparent; cursor: pointer; font-family: inherit; }
+  .btn-primary { background: var(--pumpkin); color: #FDF8EC; }
+  .btn-primary:hover { filter: brightness(1.07); }
+  .btn-outline { background: none; border-color: var(--ink); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--pumpkin); color: var(--pumpkin); }
+  .top-book { padding: 0.55rem 1.15rem; font-size: 0.9rem; }
+  .hero { padding: 4.5rem 0 3rem; }
+  .hero h1 { font-size: clamp(2.7rem, 7.5vw, 4.6rem); max-width: 17ch; margin-top: 0.9rem; }
+  .hero h1 em { font-style: normal; color: var(--pumpkin); display: block; }
+  .hero.sub h1 { font-size: clamp(2.3rem, 6vw, 3.6rem); }
+  .hero .lead { font-size: 1.18rem; color: var(--ink-soft); max-width: 36rem; margin: 1.3rem 0 1.8rem; }
+  .hero-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .hero-photo { display: block; width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 22px; box-shadow: var(--shadow); margin-top: 3rem; }
+  @media (max-width: 44rem) { .hero-photo { aspect-ratio: 4 / 3; border-radius: 16px; } }
+  .cards { padding: 2.5rem 0 4.5rem; }
+  .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+  .feat-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); display: grid; align-content: start; }
+  .feat-card.wide { grid-column: 1 / -1; }
+  .feat-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .feat-card.wide img { aspect-ratio: 21 / 8; }
+  .feat-body { padding: 1.6rem 1.8rem 1.9rem; display: grid; gap: 0.5rem; justify-items: start; }
+  .feat-label { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; color: var(--pumpkin); }
+  .feat-body h2, .feat-body h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+  .feat-body p { color: var(--ink-soft); max-width: 46rem; }
+  .feat-link { margin-top: 0.5rem; font-weight: 800; text-decoration: none; color: var(--ink); border-bottom: 2px solid var(--pumpkin); padding-bottom: 1px; }
+  .feat-link:hover { color: var(--pumpkin); }
+  .feat-card.solid { background: var(--green-deep); border-color: var(--green-deep); color: #F3EEDD; }
+  .feat-card.solid .feat-body { padding-top: 2rem; }
+  .feat-card.solid p { color: var(--green-soft); }
+  .feat-card.solid .feat-link { color: #F3EEDD; }
+  .price { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+  .price small { font-size: 1rem; font-weight: 700; color: var(--green-soft); }
+  .feat-card:not(.solid) .price small { color: var(--ink-soft); }
+  @media (max-width: 44rem) { .feat-grid { grid-template-columns: 1fr; } .feat-card img, .feat-card.wide img { aspect-ratio: 4 / 3; } }
+  .kontakt { background: var(--card); border-top: 1px solid var(--line); padding: 3.5rem 0; }
+  .kontakt-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .kontakt h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); max-width: 20ch; }
+  .kontakt p { color: var(--ink-soft); margin-top: 0.5rem; }
+  footer { padding: 1.5rem 0 2.5rem; font-size: 0.88rem; color: var(--ink-soft); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  /* bookingmodul (shelter) */
+  .season-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 4.5rem; }
+  .booking-body { display: grid; grid-template-columns: minmax(16rem, 1.1fr) minmax(15rem, 1fr); gap: 2.4rem; padding: 2rem 1.8rem; }
+  @media (max-width: 44rem) { .booking-body { grid-template-columns: 1fr; } }
+  .cal-nav { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.9rem; }
+  .cal-nav h3 { font-size: 1.1rem; }
+  .cal-nav button { background: none; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); font-size: 1rem; line-height: 1; padding: 0.4rem 0.7rem; cursor: pointer; }
+  .cal-nav button:hover { border-color: var(--pumpkin); color: var(--pumpkin); }
+  .cal-week, .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-week span { text-align: center; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); padding-bottom: 0.3rem; }
+  .cal-grid button { font-family: inherit; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--cream); border: 1px solid var(--line); border-radius: 8px; color: var(--ink); padding: 0.45rem 0; cursor: pointer; }
+  .cal-grid button:hover:not(:disabled) { border-color: var(--pumpkin); }
+  .cal-grid button:disabled { opacity: 0.35; cursor: default; background: none; }
+  .cal-grid button.taken { background: var(--pumpkin-soft); color: var(--ink-soft); text-decoration: line-through; cursor: not-allowed; }
+  .cal-grid button.selected { background: var(--pumpkin); border-color: var(--pumpkin); color: #FDF8EC; font-weight: 700; }
+  .cal-grid .empty { border: none; background: none; }
+  .cal-legend { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.9rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .cal-legend .dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; display: inline-block; }
+  .cal-legend .dot.free { background: var(--cream); border: 1px solid var(--line); }
+  .cal-legend .dot.taken { background: var(--pumpkin-soft); border: 1px solid var(--pumpkin); margin-left: 0.8rem; }
+  .book-form { display: grid; gap: 0.9rem; align-content: start; }
+  .book-form label { display: grid; gap: 0.3rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); }
+  .book-form input { font-family: inherit; font-size: 1rem; color: var(--ink); background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.8rem; }
+  .book-form input:focus-visible { outline: 3px solid var(--pumpkin); outline-offset: 1px; }
+  .form-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+  .form-note { font-size: 0.88rem; color: var(--ink-soft); }
+  .owner-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1rem 1.8rem; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-bar">
+    <a class="brand" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><g stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><line x1="13" y1="13" x2="13" y2="3"/><line x1="13" y1="13" x2="22" y2="16"/><line x1="13" y1="13" x2="7" y2="21"/><line x1="13" y1="13" x2="4" y2="8"/><line x1="13" y1="14" x2="13" y2="24"/></g></svg>
+      Møllely
+    </a>
+    <nav class="main-nav" aria-label="Hovedmenu">
+      <a href="index.html">Forside</a>
+      <a href="havefesten.html">Havefesten</a>
+      <a href="graeskar.html">Græskar</a>
+      <a href="shelter.html" class="active">Shelter</a>
+    </nav>
+    <a class="btn btn-primary top-book" href="#kontakt">Book</a>
+  </div>
+</header>
+<main>
+
+  <section class="hero sub">
+    <div class="wrap">
+      <p class="eyebrow">Shelter</p>
+      <h1>Sov derude. <em>300 kr. pr. nat.</em></h1>
+      <p class="lead">Shelter med bålplads og udsigt over marken. Tænd bål, rist skumfiduser og vågn op til fuglefløjt. I medbringer selv det hele: sovepose, liggeunderlag og morgenmad. Vælg en ledig nat og send os jeres booking.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="season-panel">
+        <div class="booking-body">
+          <div class="cal-col">
+            <div class="cal-nav">
+              <button type="button" id="cal-prev" aria-label="Forrige måned">&#8592;</button>
+              <h3 id="cal-title">Kalender</h3>
+              <button type="button" id="cal-next" aria-label="Næste måned">&#8594;</button>
+            </div>
+            <div class="cal-week" aria-hidden="true">
+              <span>ma</span><span>ti</span><span>on</span><span>to</span><span>fr</span><span>lø</span><span>sø</span>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+            <p class="cal-legend"><span class="dot free"></span> Ledig <span class="dot taken"></span> Optaget</p>
+          </div>
+          <form class="book-form" id="book-form">
+            <label>Valgt nat
+              <input id="f-date" readonly placeholder="Vælg en dato i kalenderen" required>
+            </label>
+            <label>Navn
+              <input id="f-name" autocomplete="name" required>
+            </label>
+            <label>Telefon
+              <input id="f-phone" type="tel" autocomplete="tel" required>
+            </label>
+            <label>Antal personer
+              <input id="f-count" type="number" min="1" max="10" value="2">
+            </label>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send booking som SMS</button>
+              <button class="btn btn-outline" type="button" id="copy-btn">Kopiér besked</button>
+            </div>
+            <p class="form-note" id="form-note">300 kr. pr. nat. Bookingen sendes som SMS til 21 60 09 84. I kan også bare ringe.</p>
+          </form>
+        </div>
+        <div class="owner-row" id="owner-row" hidden>
+          <span id="owner-hint">Ejer: klik på datoer for at markere dem som optaget eller ledige, og gem derefter.</span>
+          <div class="form-actions">
+            <button class="btn btn-outline" type="button" id="owner-toggle">Redigér kalender</button>
+            <button class="btn btn-primary" type="button" id="owner-save" hidden>Gem kalender</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kontakt" id="kontakt">
+    <div class="wrap kontakt-inner">
+      <div>
+        <h2>Skal vi holde jeres næste fest?</h2>
+        <p>Ring eller skriv med dato og antal gæster, så vender vi tilbage samme dag.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="tel:+4521600984">Ring 21 60 09 84</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Møllely ApS · Lyngevej 265, 3540 Lynge · CVR 45660567</span>
+    <span>Den store havefest. Lidt ude på landet. Tæt på.</span>
+  </div>
+</footer>
+
+<script type="application/json" id="shelter-state">{"booked":[]}</script>
+<script>
+(function () {
+  var PHONE = "+4521600984";
+  var MONTHS = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
+  var DAYS = ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
+  var state = JSON.parse(document.getElementById("shelter-state").textContent);
+  var booked = new Set(state.booked || []);
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  var view = new Date(today.getFullYear(), today.getMonth(), 1);
+  var selected = null;
+  var grid = document.getElementById("cal-grid");
+  var title = document.getElementById("cal-title");
+  var dateField = document.getElementById("f-date");
+  var note = document.getElementById("form-note");
+  var NOTE_STD = note.textContent;
+  function iso(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function pretty(d) { return DAYS[d.getDay()] + " " + d.getDate() + ". " + MONTHS[d.getMonth()] + " " + d.getFullYear(); }
+  function render() {
+    title.textContent = MONTHS[view.getMonth()] + " " + view.getFullYear();
+    grid.textContent = "";
+    var first = new Date(view.getFullYear(), view.getMonth(), 1);
+    var lead = (first.getDay() + 6) % 7;
+    var count = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    for (var i = 0; i < lead; i++) { var pad = document.createElement("span"); pad.className = "empty"; grid.appendChild(pad); }
+    for (var day = 1; day <= count; day++) {
+      (function (day) {
+        var d = new Date(view.getFullYear(), view.getMonth(), day);
+        var key = iso(d);
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = day;
+        var isPast = d < today;
+        var isTaken = booked.has(key);
+        if (isTaken) btn.classList.add("taken");
+        if (selected === key) btn.classList.add("selected");
+        if (isPast) { btn.disabled = true; }
+        else {
+          btn.addEventListener("click", function () {
+            if (isTaken) { note.textContent = pretty(d) + " er desværre optaget. Vælg en anden nat."; return; }
+            selected = key;
+            dateField.value = pretty(d);
+            note.textContent = NOTE_STD;
+            render();
+          });
+        }
+        btn.setAttribute("aria-label", pretty(d) + (isTaken ? ", optaget" : ", ledig"));
+        grid.appendChild(btn);
+      })(day);
+    }
+  }
+  document.getElementById("cal-prev").addEventListener("click", function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); render(); });
+  document.getElementById("cal-next").addEventListener("click", function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); render(); });
+  function message() {
+    var name = document.getElementById("f-name").value.trim();
+    var phone = document.getElementById("f-phone").value.trim();
+    var count = document.getElementById("f-count").value;
+    return "Hej Møllely. Vi vil gerne booke shelteren natten fra " + dateField.value + ". Navn: " + name + ". Antal personer: " + count + ". Telefon: " + phone + ".";
+  }
+  function validate() {
+    if (!selected) { note.textContent = "Vælg først en ledig nat i kalenderen."; return false; }
+    if (!document.getElementById("f-name").value.trim() || !document.getElementById("f-phone").value.trim()) {
+      note.textContent = "Udfyld navn og telefonnummer, så vi kan vende tilbage til jer."; return false;
+    }
+    return true;
+  }
+  document.getElementById("book-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+    location.href = "sms:" + PHONE + "?body=" + encodeURIComponent(message());
+  });
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    if (!validate()) return;
+    var text = message();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        note.textContent = "Beskeden er kopieret. Send den som SMS til 21 60 09 84.";
+      }, function () { note.textContent = text; });
+    } else { note.textContent = text; }
+  });
+  render();
+})();
+</script>
+</body>
+</html>
