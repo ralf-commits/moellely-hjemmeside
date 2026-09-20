@@ -44,7 +44,14 @@
   nav.main-nav a { text-decoration: none; font-weight: 700; font-size: 0.95rem; color: var(--ink-soft); }
   nav.main-nav a:hover { color: var(--ink); }
   nav.main-nav a.active { color: var(--ink); border-bottom: 2px solid var(--pumpkin); padding-bottom: 2px; }
-  @media (max-width: 44rem) { nav.main-nav { display: none; } }
+  @media (max-width: 44rem) {
+    .top-bar { flex-wrap: wrap; padding: 0.7rem 0; row-gap: 0.3rem; }
+    nav.main-nav { order: 3; width: 100%; gap: 1.1rem; overflow-x: auto; }
+    nav.main-nav a { font-size: 0.88rem; white-space: nowrap; }
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; align-items: center; }
+  @media (max-width: 44rem) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero-photo-tall { width: 100%; height: auto; border-radius: 22px; box-shadow: var(--shadow); }
   .btn { display: inline-block; text-decoration: none; font-weight: 800; font-size: 0.98rem; padding: 0.8rem 1.6rem; border-radius: 999px; border: 2px solid transparent; cursor: pointer; font-family: inherit; }
   .btn-primary { background: var(--pumpkin); color: #FDF8EC; }
   .btn-primary:hover { filter: brightness(1.07); }
